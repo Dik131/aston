@@ -1,0 +1,80 @@
+```
+src/
+
+├── app/             # Инициализация приложения (router, store, themes)
+
+├── pages/           # Роут-страницы
+
+├── widgets/         # Крупные блоки интерфейса
+
+├── features/        # Независимые пользовательские фичи
+
+├── entities/        # Доменные сущности (user, post, todo...)
+
+├── shared/          # Общие компоненты, утилиты и стили
+```
+
+
+**Проект:** приложение для просмотра постов и комментариев, основанное на публичном API [JSONPlaceholder](https://jsonplaceholder.typicode.com/).
+
+**Общие требования:**
+
+- Все данные загружаются с помощью RTK Query с [https://jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com/).  
+    
+- Для стилизации компонентов использовать CSS Modules.  
+    
+- Исходный код должен быть загружен в отдельный репозиторий на GitHub.  
+    
+- Для каждой домашней работы должен быть создан отдельный Merge Request (или Pull Request) с названием homework-[номер], например: homework-1.
+    
+
+**Что отправлять на проверку:**
+
+- Ссылка на Merge Request (или Pull Request) в GitHub.  
+    
+- Название Merge Request должно соответствовать номеру домашнего задания.  
+    
+- Внутри MR желательно описать, что было реализовано в рамках задачи.  
+      
+    
+
+**Структура проекта:**
+
+- Проект должен быть создан с помощью Vite + TypeScript.  
+    
+- Код должен быть организован по FSD-архитектуре: app/, pages/, widgets/, features/, entities/, shared/.  
+      
+    
+
+Гайд по API доступен здесь: [https://jsonplaceholder.typicode.com/guide](https://jsonplaceholder.typicode.com/guide)
+
+
+## homework-1
+
+Необходимо создать начальное приложение, отрисовать список постов (пока с заглушками) и научиться передавать данные через props между компонентами.
+
+**Задание:**
+
+1. Инициализировать проект с помощью Vite + TypeScript.
+
+2. Создать:
+
+   - App.tsx → src/app/
+
+   - MainLayout.tsx → src/shared/layouts/
+
+   - Header, Footer → src/widgets/LayoutHeader/, LayoutFooter/
+
+3. Отобразить список постов-заглушек:
+
+   - PostList → src/widgets/PostList/
+
+   - PostCard → src/entities/post/ui/PostCard.tsx
+
+4. Передавать данные через props, компонент — функциональный.
+
+**Что отправлять на проверку:**
+
+- Ссылку на Merge Request (или Pull Request) в GitHub.
+- Название Merge Request должно соответствовать номеру домашнего задания.
+- Внутри MR желательно описать, что было реализовано в рамках задачи
