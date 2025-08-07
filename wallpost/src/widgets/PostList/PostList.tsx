@@ -7,10 +7,10 @@ const mockPosts = [
 
 export const PostList = () => {
   return (
-    <div>
+    <>
       {mockPosts.map((post) => (
         <PostCard key={post.id} title={post.title} body={post.body} />
       ))}
-    </div>
+    </>
   )
 }
