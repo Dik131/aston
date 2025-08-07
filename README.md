@@ -73,6 +73,24 @@ src/
 
 4. Передавать данные через props, компонент — функциональный.
 
+## homework-2
+
+Необходимо добавить модальное окно с информацией о проекте, которое открывается по кнопке в шапке приложения, а также реализовать переключение светлой и тёмной темы через контекст.
+
+**Задание:**
+
+1. Реализовать ThemeContext и переключение темы:
+
+   - ThemeProvider, useTheme → src/shared/lib/theme/
+
+   - ThemeSwitcher → src/features/ThemeSwitcher/ui/
+
+2. Использовать React.Fragment и key в списках.
+
+3. Модалка "О проекте" через React.Portal → src/shared/ui/Modal/
+
+4. Кнопки с обработкой событий → src/shared/ui/Button/
+
 **Что отправлять на проверку:**
 
 - Ссылку на Merge Request (или Pull Request) в GitHub.
