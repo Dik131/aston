@@ -1,3 +1,35 @@
+# Aston-wallpost
+
+## **Проект:** 
+приложение для просмотра постов и комментариев, основанное на публичном API [JSONPlaceholder](https://jsonplaceholder.typicode.com/).
+
+## **Общие требования:**
+
+- Все данные загружаются с помощью RTK Query с [https://jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com/).  
+    
+- Для стилизации компонентов использовать CSS Modules.  
+    
+- Исходный код должен быть загружен в отдельный репозиторий на GitHub.  
+    
+- Для каждой домашней работы должен быть создан отдельный Merge Request (или Pull Request) с названием homework-[номер], например: homework-1.
+    
+
+## **Что отправлять на проверку:**
+
+- Ссылка на Merge Request (или Pull Request) в GitHub.  
+    
+- Название Merge Request должно соответствовать номеру домашнего задания.  
+    
+- Внутри MR желательно описать, что было реализовано в рамках задачи.  
+      
+    
+
+## **Структура проекта:**
+
+- Проект должен быть создан с помощью Vite + TypeScript.  
+    
+- Код должен быть организован по FSD-архитектуре: app/, pages/, widgets/, features/, entities/, shared/:
+
 ```
 src/
 
@@ -12,37 +44,8 @@ src/
 ├── entities/        # Доменные сущности (user, post, todo...)
 
 ├── shared/          # Общие компоненты, утилиты и стили
+
 ```
-
-
-**Проект:** приложение для просмотра постов и комментариев, основанное на публичном API [JSONPlaceholder](https://jsonplaceholder.typicode.com/).
-
-**Общие требования:**
-
-- Все данные загружаются с помощью RTK Query с [https://jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com/).  
-    
-- Для стилизации компонентов использовать CSS Modules.  
-    
-- Исходный код должен быть загружен в отдельный репозиторий на GitHub.  
-    
-- Для каждой домашней работы должен быть создан отдельный Merge Request (или Pull Request) с названием homework-[номер], например: homework-1.
-    
-
-**Что отправлять на проверку:**
-
-- Ссылка на Merge Request (или Pull Request) в GitHub.  
-    
-- Название Merge Request должно соответствовать номеру домашнего задания.  
-    
-- Внутри MR желательно описать, что было реализовано в рамках задачи.  
-      
-    
-
-**Структура проекта:**
-
-- Проект должен быть создан с помощью Vite + TypeScript.  
-    
-- Код должен быть организован по FSD-архитектуре: app/, pages/, widgets/, features/, entities/, shared/.  
       
     
 
@@ -91,8 +94,36 @@ src/
 
 4. Кнопки с обработкой событий → src/shared/ui/Button/
 
-**Что отправлять на проверку:**
+## homework-3
 
-- Ссылку на Merge Request (или Pull Request) в GitHub.
-- Название Merge Request должно соответствовать номеру домашнего задания.
-- Внутри MR желательно описать, что было реализовано в рамках задачи
+Необходимо реализовать отображение модального окна с использованием compound components, добавить фильтрацию постов по длине заголовка, свертывание комментариев и оптимизации через HOC и хуки.
+
+**Задание:**
+
+1. Compound Components:
+
+   - Modal с подкомпонентами (Header, Body, Footer) → src/shared/ui/Modal/
+
+2. HOC withLoading:
+
+   - HOC → src/shared/lib/hoc/
+
+   - Применяется к PostList
+
+3. Свертывание/разворачивание комментариев:
+
+  - CommentList.tsx → src/widgets/CommentList/ui/
+
+  - Используй useState, useCallback
+
+4. Фильтр по длине заголовка:
+
+  - PostLengthFilter → src/features/PostLengthFilter/ui/
+
+  - filterByLength.ts → src/features/PostLengthFilter/lib/
+
+5. Оптимизации:
+
+   - useMemo, useCallback в PostList
+
+
