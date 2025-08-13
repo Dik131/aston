@@ -1,4 +1,4 @@
-import { MainLayout } from '../shared/layouts/MainLayout'
+import { MainLayout } from '../widgets/MainLayout/MainLayout';
 import { PostList } from '../widgets/PostList/PostList'
 
 const App = () => {
