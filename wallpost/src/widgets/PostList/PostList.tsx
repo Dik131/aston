@@ -1,16 +1,26 @@
-import { PostCard } from '../../entities/post/ui/PostCard'
+import { useMemo, useCallback } from 'react';
+import { PostCard } from '../../entities/post/ui/PostCard';
+import { withLoading } from '../../shared/lib/hoc/withLoading';
+import { filterByLength } from '../../features/PostLengthFilter/lib/filterByLength';
+import type { Post } from '../../entities/post/model/types';
 
-const mockPosts = [
-  { id: 1, title: 'Заглушка 1', body: 'Контент поста 1' },
-  { id: 2, title: 'Заглушка 2', body: 'Контент поста 2' },
-]
-
-export const PostList = () => {
-  return (
-    <>
-      {mockPosts.map((post) => (
-        <PostCard key={post.id} title={post.title} body={post.body} />
-      ))}
-    </>
-  )
+interface PostListBaseProps {
+  posts: Post[];
+  minTitleLength?: number;
 }
+
+export const PostListBase = ({ posts, minTitleLength = 0 }: PostListBaseProps) => {
+  const filteredPosts = useMemo(
+    () => filterByLength(posts, minTitleLength),
+    [posts, minTitleLength]
+  );
+
+  const renderPost = useCallback(
+    (post: Post) => <PostCard key={post.id} title={post.title} body={post.body} />,
+    []
+  );
+
+  return <div>{filteredPosts.map(renderPost)}</div>;
+};
+
+export const PostList = withLoading(PostListBase);
