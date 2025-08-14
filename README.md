@@ -98,6 +98,56 @@ src/
 
 4. Кнопки с обработкой событий → src/shared/ui/Button/
 
+## homework-3
+
+Необходимо реализовать отображение модального окна с использованием compound components, добавить фильтрацию постов по длине заголовка, свертывание комментариев и оптимизации через HOC и хуки.
+
+**Задание:**
+
+1. Compound Components:
+
+   - Modal с подкомпонентами (Header, Body, Footer) → src/shared/ui/Modal/
+
+2. HOC withLoading:
+
+   - HOC → src/shared/lib/hoc/
+
+   - Применяется к PostList
+
+3. Свертывание/разворачивание комментариев:
+
+  - CommentList.tsx → src/widgets/CommentList/ui/
+
+  - Используй useState, useCallback
+
+4. Фильтр по длине заголовка:
+
+  - PostLengthFilter → src/features/PostLengthFilter/ui/
+
+  - filterByLength.ts → src/features/PostLengthFilter/lib/
+
+5. Оптимизации:
+
+   - useMemo, useCallback в PostList
+
+## homework-4
+
+Необходимо добавить маршруты для страниц с постами, комментариями, альбомами, фото и задачами пользователей. Реализовать навигацию и кастомный хук для получения постов.
+
+**Задание:**
+
+1. Настроить маршруты:
+
+   - /posts, /posts/:id, /users/:id/albums, /albums/:id/photos, /users/:id/todos, /users/:id/posts
+
+   - Роуты → src/pages/
+
+   - Роутинг → src/app/providers/router/
+
+2. Навигация через NavLink → UserTabs → src/widgets/UserTabs/
+
+3. Хук usePosts → src/features/PostList/model/hooks/
+
 
 Что отправлять на проверку:
 
