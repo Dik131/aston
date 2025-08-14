@@ -4,31 +4,58 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.5);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
-.content {
-  background: white;
+.overlay.light {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.overlay.dark {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal {
   padding: 24px;
   border-radius: 8px;
   position: relative;
+  min-width: 300px;
+  max-width: 90%;
+  z-index: 1001;
+}
+
+.modal.light {
+  background-color: white;
+  color: black;
+}
+
+.modal.dark {
+  background-color: #222;
+  color: white;
 }
 
 .closeBtn {
   position: absolute;
   top: 8px;
   right: 8px;
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  color: inherit;
 }
+
 .closeBtn:hover {
   cursor: pointer;
   color: red;
 }
+
 .closeBtn:focus {
   outline: none;
 }
+
 .closeBtn:active {
   transform: scale(0.95);
 }
