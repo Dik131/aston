@@ -166,6 +166,8 @@ src/
 
 4. Инвалидация, кэширование, загрузка по userId и postId
 
+---
+
 Что отправлять на проверку:
 
 Ссылку на Merge Request (или Pull Request) в GitHub.
