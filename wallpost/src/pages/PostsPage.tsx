@@ -4,5 +4,7 @@ import { usePosts } from '../features/PostList/model/hooks/usePosts';
 export const PostsPage = () => {
   const { posts, isLoading } = usePosts();
 
-  return <PostList posts={posts} isLoading={isLoading} />;
+  return (
+      <PostList posts={posts} minTitleLength={0} isLoading={isLoading} />
+  );
 };

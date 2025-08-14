@@ -1,16 +1,16 @@
-import { MainLayout } from '../widgets/MainLayout/MainLayout';
-import { PostList } from '../widgets/PostList/PostList'
-import { usePosts } from '../features/PostList/model/hooks/usePosts';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './providers/router';
+import { MainLayout } from '../widgets/MainLayout/MainLayout.tsx';
 
 const App = () => {
-  const { posts, isLoading } = usePosts()
-
 
   return (
-    <MainLayout>
-      <PostList posts={posts} minTitleLength={0} isLoading={isLoading}/>
-    </MainLayout>
+    
+      <MainLayout>
+        <RouterProvider router={router} />
+      </MainLayout>
   )
 }
 
 export default App;
+
