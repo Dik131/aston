@@ -10,15 +10,23 @@ export const albumsApi = createApi({
       query: () => 'albums',
       providesTags: (result) =>
         result
-          ? [...result.map(({ id }) => ({ type: 'Albums' as const, id })), { type: 'Albums', id: 'LIST' }]
+          ? [
+              ...result.map(({ id }) => ({ type: 'Albums' as const, id })),
+              { type: 'Albums', id: 'LIST' },
+            ]
           : [{ type: 'Albums', id: 'LIST' }],
     }),
-    getAlbumsByUserId: builder.query<Album[], number>({
+    getAlbumsByUser: builder.query<Album[], number>({
       query: (userId) => `users/${userId}/albums`,
       providesTags: (result, error, userId) =>
-        result ? [...result.map(({ id }) => ({ type: 'Albums' as const, id })), { type: 'Albums', id: `USER-${userId}` }] : [],
+        result
+          ? [
+              ...result.map(({ id }) => ({ type: 'Albums' as const, id })),
+              { type: 'Albums', id: `USER-${userId}` },
+            ]
+          : [{ type: 'Albums', id: `USER-${userId}` }],
     }),
   }),
 });
 
-export const { useGetAlbumsQuery, useGetAlbumsByUserIdQuery } = albumsApi;
+export const { useGetAlbumsQuery, useGetAlbumsByUserQuery } = albumsApi;

@@ -1,12 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
-import { PostsPage } from '../../pages/PostsPage'
-import { ErrorPage } from '../../pages/ErrorPage';
-import { PostDetailsPage } from '../../pages/PostDetailsPage';
-import { UserAlbumsPage } from '../../pages/UserAlbumsPage';
-import { AlbumPhotosPage } from '../../pages/AlbumPhotosPage';
-import { UserTodosPage } from '../../pages/UserTodosPage';
-import { UserPostsPage } from '../../pages/UserPostsPage';
+import { PostsPage } from '../../../pages/PostsPage';
+import { ErrorPage } from '../../../pages/ErrorPage';
+import { PostDetailsPage } from '../../../pages/PostDetailsPage';
+import { UserAlbumsPage } from '../../../pages/UserAlbumsPage';
+import { AlbumPhotosPage } from '../../../pages/AlbumPhotosPage';
+import { UserTodosPage } from '../../../pages/UserTodosPage';
+import { UserPostsPage } from '../../../pages/UserPostsPage';
 
 
 export const router = createBrowserRouter([

@@ -6,19 +6,17 @@ export const commentsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: 'https://jsonplaceholder.typicode.com/' }),
   tagTypes: ['Comments'],
   endpoints: (builder) => ({
-    getComments: builder.query<Comment[], void>({
-      query: () => 'comments',
-      providesTags: (result) =>
-        result
-          ? [...result.map(({ id }) => ({ type: 'Comments' as const, id })), { type: 'Comments', id: 'LIST' }]
-          : [{ type: 'Comments', id: 'LIST' }],
-    }),
-    getCommentsByPostId: builder.query<Comment[], number>({
+    getCommentsByPost: builder.query<Comment[], number>({
       query: (postId) => `posts/${postId}/comments`,
       providesTags: (result, error, postId) =>
-        result ? [...result.map(({ id }) => ({ type: 'Comments' as const, id })), { type: 'Comments', id: `POST-${postId}` }] : [],
+        result
+          ? [
+              ...result.map(({ id }) => ({ type: 'Comments' as const, id })),
+              { type: 'Comments', id: `POST-${postId}` },
+            ]
+          : [{ type: 'Comments', id: `POST-${postId}` }],
     }),
   }),
 });
 
-export const { useGetCommentsQuery, useGetCommentsByPostIdQuery } = commentsApi;
+export const { useGetCommentsByPostQuery } = commentsApi;

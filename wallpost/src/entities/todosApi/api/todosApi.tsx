@@ -10,15 +10,31 @@ export const todosApi = createApi({
       query: () => 'todos',
       providesTags: (result) =>
         result
-          ? [...result.map(({ id }) => ({ type: 'Todos' as const, id })), { type: 'Todos', id: 'LIST' }]
+          ? [
+              ...result.map(({ id }) => ({ type: 'Todos' as const, id })),
+              { type: 'Todos', id: 'LIST' },
+            ]
           : [{ type: 'Todos', id: 'LIST' }],
     }),
-    getTodosByUserId: builder.query<Todo[], number>({
+    getTodosByUser: builder.query<Todo[], number>({
       query: (userId) => `users/${userId}/todos`,
       providesTags: (result, error, userId) =>
-        result ? [...result.map(({ id }) => ({ type: 'Todos' as const, id })), { type: 'Todos', id: `USER-${userId}` }] : [],
+        result
+          ? [
+              ...result.map(({ id }) => ({ type: 'Todos' as const, id })),
+              { type: 'Todos', id: `USER-${userId}` },
+            ]
+          : [{ type: 'Todos', id: `USER-${userId}` }],
+    }),
+    toggleTodo: builder.mutation<Todo, Partial<Todo>>({
+      query: ({ id, ...patch }) => ({
+        url: `todos/${id}`,
+        method: 'PATCH',
+        body: patch,
+      }),
+      invalidatesTags: (result, error, { id }) => [{ type: 'Todos', id }],
     }),
   }),
 });
 
-export const { useGetTodosQuery, useGetTodosByUserIdQuery } = todosApi;
+export const { useGetTodosQuery, useGetTodosByUserQuery, useToggleTodoMutation } = todosApi;
