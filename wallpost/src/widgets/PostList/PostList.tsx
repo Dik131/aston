@@ -2,6 +2,7 @@ import { useMemo, useCallback } from 'react';
 import { PostCard } from '../../entities/post/ui/PostCard';
 import { withLoading } from '../../shared/lib/hoc/withLoading';
 import { filterByLength } from '../../features/PostLengthFilter/lib/filterByLength';
+import { ItemList } from '../../shared/ui/ItemList/ItemList';
 import type { Post } from '../../entities/post/model/types';
 
 interface PostListBaseProps {
@@ -20,7 +21,7 @@ export const PostListBase = ({ posts, minTitleLength = 0 }: PostListBaseProps) =
     []
   );
 
-  return <div>{filteredPosts.map(renderPost)}</div>;
+  return <ItemList<Post> items={filteredPosts} renderItem={renderPost} />;
 };
 
 export const PostList = withLoading(PostListBase);
