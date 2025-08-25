@@ -1,10 +1,32 @@
+import { useEffect, useState } from 'react';
 import { MainLayout } from '../widgets/MainLayout/MainLayout';
 import { PostList } from '../widgets/PostList/PostList'
+import { PostLengthFilter } from '../features/PostLengthFilter/ui/PostLengthFilter';
+import styles from './App.module.css'
+import type { Post } from '../entities/post/model/types';
+
+const mockPosts: Post[] = [
+  { id: 1, title: 'Заглушка 1', body: 'Контент поста 1' },
+  { id: 2, title: 'Заглушка 2', body: 'Контент поста 2' },
+];
 
 const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [maxPostCount, setMaxPostCount] = useState(0);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500); // 1.5 секунды имитации загрузки
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <MainLayout>
-      <PostList />
+      <PostList posts={mockPosts} maxPostCount={maxPostCount} isLoading={isLoading}/>
+      <div className={styles.filter}>
+        <PostLengthFilter onChange={setMaxPostCount} />
+      </div>
     </MainLayout>
   )
 }
