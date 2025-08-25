@@ -3,12 +3,10 @@ import { router } from './providers/router';
 import { MainLayout } from '../widgets/MainLayout/MainLayout.tsx';
 
 const App = () => {
-
   return (
-    
-      <MainLayout>
-        <RouterProvider router={router} />
-      </MainLayout>
+    <MainLayout>
+      <RouterProvider router={router} />
+    </MainLayout>
   )
 }
 

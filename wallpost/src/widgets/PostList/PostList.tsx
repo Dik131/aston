@@ -6,13 +6,13 @@ import type { Post } from '../../entities/post/model/types';
 
 interface PostListBaseProps {
   posts: Post[];
-  minTitleLength?: number;
+  maxPostCount?: number;
 }
 
-export const PostListBase = ({ posts, minTitleLength = 0 }: PostListBaseProps) => {
+export const PostListBase = ({ posts, maxPostCount = 0 }: PostListBaseProps) => {
   const filteredPosts = useMemo(
-    () => filterByLength(posts, minTitleLength),
-    [posts, minTitleLength]
+    () => filterByLength(posts, maxPostCount),
+    [posts, maxPostCount]
   );
 
   const renderPost = useCallback(
