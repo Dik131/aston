@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import styles from './CommentList.module.css';
+import { InlineButton } from '../../shared/ui/InlineButton/InlineButton';
 
 type Comment = {
   id: string | number;
@@ -19,17 +19,17 @@ export const CommentList = ({ comments }: CommentListProps) => {
 
   if (collapsed) {
     return (
-      <button onClick={toggle} className={styles.textButton}>
+      <InlineButton onClick={toggle}>
         Показать комментарии
-      </button>
+      </InlineButton>
     );
   }
 
   return (
     <div>
-      <button onClick={toggle} className={styles.textButton}>
+      <InlineButton onClick={toggle}>
         Скрыть комментарии
-      </button>
+      </InlineButton>
       <ul>
         {comments.map(c => (
           <li key={c.id}>{c.body}</li>
