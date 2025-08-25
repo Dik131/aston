@@ -5,9 +5,10 @@ type PostLengthFilterProps = {
 export const PostLengthFilter = ({ onChange }: PostLengthFilterProps) => {
   return (
     <select onChange={(e) => onChange(Number(e.target.value))}>
-      <option value="0">Все</option>
-      <option value="20">&gt; 20 символов</option>
-      <option value="50">&gt; 50 символов</option>
+      <option value="0">Все посты</option>
+      <option value="5">5 постов</option>
+      <option value="10">10 постов</option>
+      <option value="20">20 постов</option>
     </select>
   );
 };
