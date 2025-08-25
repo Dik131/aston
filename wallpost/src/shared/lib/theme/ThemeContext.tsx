@@ -1,4 +1,4 @@
-import { createContext, useState, useMemo } from 'react'
+import { createContext, useState, useMemo, useEffect } from 'react'
 
 type Theme = 'light' | 'dark'
 
@@ -12,6 +12,12 @@ export const ThemeContext = createContext<{
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [theme, setTheme] = useState<Theme>('light')
+
+  
+  useEffect(() => {
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    setTheme(systemPrefersDark ? 'dark' : 'light')
+  }, [])
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
