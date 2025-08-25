@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { MainLayout } from '../widgets/MainLayout/MainLayout';
 import { PostList } from '../widgets/PostList/PostList'
 import { PostLengthFilter } from '../features/PostLengthFilter/ui/PostLengthFilter';
-import './App.module.css'
+import styles from './App.module.css'
 import type { Post } from '../entities/post/model/types';
 
 const mockPosts: Post[] = [
@@ -24,7 +24,7 @@ const App = () => {
   return (
     <MainLayout>
       <PostList posts={mockPosts} maxPostCount={maxPostCount} isLoading={isLoading}/>
-      <div className='filter'>
+      <div className={styles.filter}>
         <PostLengthFilter onChange={setMaxPostCount} />
       </div>
     </MainLayout>

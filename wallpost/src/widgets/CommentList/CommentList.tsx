@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import styles from './CommentList.module.css';
 
 type Comment = {
   id: string | number;
@@ -17,12 +18,18 @@ export const CommentList = ({ comments }: CommentListProps) => {
   }, []);
 
   if (collapsed) {
-    return <button onClick={toggle}>Показать комментарии</button>;
+    return (
+      <button onClick={toggle} className={styles.textButton}>
+        Показать комментарии
+      </button>
+    );
   }
 
   return (
     <div>
-      <button onClick={toggle}>Скрыть комментарии</button>
+      <button onClick={toggle} className={styles.textButton}>
+        Скрыть комментарии
+      </button>
       <ul>
         {comments.map(c => (
           <li key={c.id}>{c.body}</li>
