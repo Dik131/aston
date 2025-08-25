@@ -1,0 +1,9 @@
+.textButton {
+  background: none;
+  border: none;
+  color: gray;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+}
