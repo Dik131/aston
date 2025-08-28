@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import style from './UserTodosPage.module.css';
+import style from './ui/UserTodosPage.module.css';
 
 interface Todo {
   id: number;

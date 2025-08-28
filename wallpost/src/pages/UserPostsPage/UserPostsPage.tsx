@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { MainLayout } from '../widgets/MainLayout/MainLayout';
-import { PostList } from '../widgets/PostList/PostList';
+import { PostList } from '../../widgets/PostList/PostList';
 
 interface Post {
   id: number;
@@ -22,13 +21,13 @@ export const UserPostsPage = () => {
       .finally(() => setIsLoading(false));
   }, [id]);
 
-  if (isLoading) return <MainLayout>Загрузка...</MainLayout>;
-  if (!posts.length) return <MainLayout>Посты не найдены</MainLayout>;
+  if (isLoading) return <>Загрузка...</>;
+  if (!posts.length) return <>Посты не найдены</>;
 
   return (
-    <MainLayout>
+    <>
       <h1>Посты пользователя {id}</h1>
-      <PostList posts={posts} minTitleLength={0} isLoading={isLoading} />
-    </MainLayout>
+      <PostList posts={posts} isLoading={isLoading} />
+    </>
   );
 };
