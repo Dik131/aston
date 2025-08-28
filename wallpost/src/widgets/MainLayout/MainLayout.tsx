@@ -1,15 +1,20 @@
+import { Outlet } from 'react-router-dom';
+import type { ReactNode } from 'react';
 import { BaseLayout } from '../../shared/layouts/BaseLayout';
 import { LayoutHeader } from '../../widgets/LayoutHeader/LayoutHeader';
 import { LayoutFooter } from '../../widgets/LayoutFooter/LayoutFooter';
-//import styles from './MainLayout.module.css';
 
-export const MainLayout = ({ children }: { children: React.ReactNode }) => {
+interface MainLayoutProps {
+  children?: ReactNode; 
+}
+
+export const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <BaseLayout
       header={<LayoutHeader />}
       footer={<LayoutFooter />}
     >
-      {children}
+      {children || <Outlet />}
     </BaseLayout>
   );
 };
