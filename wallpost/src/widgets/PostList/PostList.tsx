@@ -26,7 +26,7 @@ export const PostListBase = ({ posts }: PostListBaseProps) => {
       </div>
 
       {filteredPosts.map((post) => (
-        <PostCard key={post.id} title={post.title} body={post.body} />
+        <PostCard key={post.id} title={post.title} body={post.body} userId={post.id}/>
       ))}
     </div>
   );

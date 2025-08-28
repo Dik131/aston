@@ -7,6 +7,7 @@ import { UserAlbumsPage } from '../../pages/UserAlbumsPage/UserAlbumsPage';
 import { AlbumPhotosPage } from '../../pages/AlbumPhotosPage/AlbumPhotosPage';
 import { UserTodosPage } from '../../pages/UserTodosPage/UserTodosPage';
 import { UserPostsPage } from '../../pages/UserPostsPage/UserPostsPage';
+import { UserLayout } from '../../widgets/UserLayout/UserLayout';
 
 export const router = createBrowserRouter([
   {
@@ -29,4 +30,14 @@ export const router = createBrowserRouter([
       { path: 'users/:id/posts', element: <UserPostsPage /> },
     ],
   },
+  {
+  path: 'users/:id',
+  element: <UserLayout />,
+  children: [
+    { path: 'posts', element: <UserPostsPage /> },
+    { path: 'albums', element: <UserAlbumsPage /> },
+    { path: 'todos', element: <UserTodosPage /> },
+  ],
+}
 ]);
+
