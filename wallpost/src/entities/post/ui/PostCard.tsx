@@ -9,11 +9,20 @@ type Props = {
 }
 
 export const PostCard = ({ title, body, comments = [] }: Props) => {
+  // временная заглушка
+  const displayedComments = comments && comments.length > 0
+    ? comments
+    : [
+        { id: 1, body: "Отличный пост!" },
+        { id: 2, body: "Очень интересно." },
+        { id: 3, body: "Спасибо за информацию!" },
+      ];
+
   return (
     <div className={styles.card}>
       <h3>{title}</h3>
       <p>{body}</p>
-      <CommentList comments={comments} />
+      <CommentList comments={displayedComments} />
     </div>
   )
 }
