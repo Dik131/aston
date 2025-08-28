@@ -33,11 +33,11 @@ export const PostDetailsPage = () => {
   if (!post) return <MainLayout>Пост не найден</MainLayout>;
 
   return (
-    <MainLayout>
+    <>
       <h1>{post.title}</h1>
       <p>{post.body}</p>
       <h2>Комментарии</h2>
       <CommentList comments={comments} />
-    </MainLayout>
+    </>
   );
 };
