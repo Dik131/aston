@@ -1,12 +1,14 @@
-import { MainLayout } from '../widgets/MainLayout/MainLayout';
-import { PostList } from '../widgets/PostList/PostList'
+import { RouterProvider } from 'react-router-dom';
+import { router } from './providers/router/router.tsx';
+import { MainLayout } from '../widgets/MainLayout/MainLayout.tsx';
 
 const App = () => {
   return (
     <MainLayout>
-      <PostList />
+      <RouterProvider router={router} />
     </MainLayout>
   )
 }
 
 export default App;
+
