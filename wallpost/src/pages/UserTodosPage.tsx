@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { MainLayout } from '../widgets/MainLayout/MainLayout';
+import style from './UserTodosPage.module.css';
 
 interface Todo {
   id: number;
@@ -21,24 +21,24 @@ export const UserTodosPage = () => {
       .finally(() => setIsLoading(false));
   }, [id]);
 
-  if (isLoading) return <MainLayout>Загрузка...</MainLayout>;
-  if (!todos.length) return <MainLayout>Задачи не найдены</MainLayout>;
+  if (isLoading) return <>Загрузка...</>;
+  if (!todos.length) return <>Задачи не найдены</>;
 
   return (
-    <MainLayout>
+    <>
       <h1>Задачи пользователя {id}</h1>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
+      <ul className={style.todoList}>
         {todos.map(todo => (
-          <li key={todo.id} style={{ marginBottom: '8px' }}>
-            <label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <li key={todo.id} className={style.todoItem}>
+            <label className={style.todoLabel}>
               <input type="checkbox" checked={todo.completed} readOnly />
-              <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+              <span className={todo.completed ? style.completed : undefined}>
                 {todo.title}
               </span>
             </label>
           </li>
         ))}
       </ul>
-    </MainLayout>
+    </>
   );
 };
