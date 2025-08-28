@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { AlbumList } from '../widgets/AlbumList/AlbumList';
-import { MainLayout } from '../widgets/MainLayout/MainLayout';
+import { AlbumList } from '../../widgets/AlbumList/AlbumList';
 
 export const UserAlbumsPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -16,8 +15,8 @@ export const UserAlbumsPage = () => {
   }, [id]);
 
   return (
-    <MainLayout>
+    <>
       <AlbumList albums={albums} isLoading={isLoading} />
-    </MainLayout>
+    </>
   );
 };

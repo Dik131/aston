@@ -1,0 +1,18 @@
+.todosContainer {
+  list-style: none;
+  padding: 0;
+}
+
+.todoItem {
+  margin-bottom: 8px;
+}
+
+.todoLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.completed {
+  text-decoration: line-through;
+}

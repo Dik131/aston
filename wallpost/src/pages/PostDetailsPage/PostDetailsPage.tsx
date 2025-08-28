@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { MainLayout } from '../widgets/MainLayout/MainLayout';
-import { CommentList } from '../widgets/CommentList/CommentList';
+import { CommentList } from '../../widgets/CommentList/CommentList';
 
 interface Post {
   id: number;
@@ -29,15 +28,15 @@ export const PostDetailsPage = () => {
     .finally(() => setIsLoading(false));
   }, [id]);
 
-  if (isLoading) return <MainLayout>Загрузка...</MainLayout>;
-  if (!post) return <MainLayout>Пост не найден</MainLayout>;
+  if (isLoading) return <>Загрузка...</>;
+  if (!post) return <>Пост не найден</>;
 
   return (
-    <MainLayout>
+    <>
       <h1>{post.title}</h1>
       <p>{post.body}</p>
       <h2>Комментарии</h2>
       <CommentList comments={comments} />
-    </MainLayout>
+    </>
   );
 };

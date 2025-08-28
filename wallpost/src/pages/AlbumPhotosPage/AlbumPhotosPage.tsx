@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { MainLayout } from '../widgets/MainLayout/MainLayout';
+
 
 interface Photo {
   id: number;
@@ -22,8 +22,8 @@ export const AlbumPhotosPage = () => {
       .finally(() => setIsLoading(false));
   }, [id]);
 
-  if (isLoading) return <MainLayout>Загрузка...</MainLayout>;
-  if (!photos.length) return <MainLayout>Фотографии не найдены</MainLayout>;
+  if (isLoading) return <>Загрузка...</>;
+  if (!photos.length) return <>Фотографии не найдены</>;
 
   return (
     <>

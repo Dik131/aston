@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { InlineButton } from '../../shared/ui/InlineButton/InlineButton';
+import styles from './CommentList.module.css';
 
 type Comment = {
   id: string | number;
